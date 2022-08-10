@@ -1,0 +1,100 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <script>
+        function dbconfirm(message) {
+            if (confirm(message) == false)
+                return false;
+            else
+                return true;
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #header {
+            width: 100%;
+            height: 60px;
+            background-color: bisque;
+            display: flex;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        #content {
+            width: 100%;
+            background-color: lightpink;
+            height: 420px;
+        }
+
+        h1 {
+            margin: 0;
+
+        }
+    </style>
+
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+    <div id="header">
+        <div style="width:70% ;margin-left: 5px;">
+            <a href="/">
+                <img src={% static "image/userapp/123.png" %} height="100%">
+            </a>
+        </div>
+
+        <div style="width:30% ; text-align: right; line-height: 30px; margin-right: 15px;">
+            {% if session.name != none %}
+            歡迎
+            <font style="color:red ; font-weight: bold;">
+                {{session.name}}
+            </font> ~~~~
+            {% else %}
+            <button onclick="window.location.href='/login/'" style="text-align:center; height: 30px;">
+                登入
+            </button>
+
+            <!-- <a href="\login\">
+                <input type="button" value="登入" onclick="return dbconfirm('確認登入?')">
+            </a> -->
+
+            {% endif %}
+
+            <font style="color:red ;">
+                {% if session.level == 0 %}
+                超級管理者
+                {% elif session.level == 1 %}
+                管理者
+                {% elif session.level == 2 %}
+                一般使用者
+                {% endif %}
+                {% if session.level != none %}
+                <br>
+                <font style="color:black ;">
+                    登入時間: {{session.time}}
+                    <a href="\logout\">
+                        <button onclick="return dbconfirm('確認登出?')" style=" height: 30px;">登出</button>
+                    </a>
+                </font>
+                {% endif %}
+            </font>
+
+        </div>
+    </div>
+    <div id="content">
+        {% block body %}
+        {% endblock %}
+    </div>
+
+</body>
+
+</html>

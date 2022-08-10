@@ -1,0 +1,62 @@
+{% extends 'root.html' %}
+
+{% block head %}
+
+<!-- <style>
+    body {
+        display: flex;
+    }
+
+    h1 {
+        margin: auto;
+    }
+</style> -->
+{% endblock %}
+{% block body %}
+{% block content %}
+<h1>
+    {{btn}}帳號:
+</h1>
+<h2>
+    <p>
+       <font color="red">
+        <!-- {{errormsg}}{{error}} -->
+        {% for msg in error %}
+         {{msg}}<br>
+        {% endfor %}
+       </font> 
+    <p>
+        {% if opt == 1 %}
+        <form action="\userupdatecheck\" method="POST">
+        {% elif opt == 2 %}
+        <form action="\userupdate\" method="POST">
+        {% elif opt == 3 %}
+        <form action="\useradd\" method="POST">
+            {% endif %}
+            {% csrf_token %}
+            {% if data.0 >= 0 %}
+            <input type="hidden" name="id" value="{{data.0}}">
+            {% endif %}
+            {% if data.0 < 0 %}
+            帳號: <input type="text" name="account" value="{{data.2}}">
+            <p>
+            {% endif %}
+            密碼: <input type="text" name="password" value="{{data.3}}">
+            <p>
+                姓名: <input type="text" name="name" value="{{data.1}}">
+            <p>
+                <input type="hidden" name="priority" value="{{data.4}}">
+                {% if session.level == 0 %}
+                    權限: <input type="text" name="priority" value="{{data.4}}">
+                {% else %}
+                    <input type="hidden" name="priority" value="{{data.4}}">
+                {% endif %}
+                       
+            <p>
+                <!-- 電話: <input type="password" name="tel"><p> -->
+                <input type="submit" value="{{btn}}" onclick="if(confirm('確定{{btn}}?')==false)return false;">
+                <!-- <button>登入</button> -->
+        </form>
+</h2>
+{% endblock %}
+{% endblock %}

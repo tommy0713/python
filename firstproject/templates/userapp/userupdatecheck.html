@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+        }
+
+        h1{
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        修改帳號:
+        <p>
+        <form action="\userupdate\" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{data.0}}">
+            密碼: <input type="text" name="password" value="{{data.3}}"><p>
+            姓名: <input type="text" name="name" value="{{data.2}}"><p>
+            <!-- 電話: <input type="password" name="tel"><p> -->
+            <input type="submit" value="確認">
+            <a href="\userlist\">取消</a>
+            <!-- <button>登入</button> -->
+        </form>
+    </h1>
+</body>
+</html>

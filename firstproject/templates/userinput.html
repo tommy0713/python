@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+{% csrf_token %}
+姓名: {{form.name}}<p>
+信箱: {{form.email}}<p>
+住址: {{form.addr}}<p>
+年齡: {{form.age}}<p>
+<input type="submit">
+
+{% endblock %}
