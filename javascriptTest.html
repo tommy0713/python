@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 50px;
+            /* font-family: Arial, Helvetica, sans-serif; */
+            font-family: 'Courier New', Courier, monospace;
+            color: crimson;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <p><b name="pp" style="color: darkblue;">台北市</b></p>
+    <p id="a" name = 'cc'>台中市</p>
+    <p name = 'kk'>高雄市</p> -->
+
+    <form name=“form” id=“form”>
+        姓名：<input type="text" name="name" id="name" /> 
+        E-mail ： <input type="text" name="email" id="email" />
+        TEL ： <input type="text" name="tel" id="tel" />
+
+        <input type="button" name="submit" value="送出" onclick="test();" />
+    </form>
+    <br>
+    <!-- <form name="math" id="'math" action="">
+        數字1 :<input type="text" name="one" id='one'>
+        數字2 :<input type="text" name="two" id='two'>
+        <input type="button" value="送出" onclick="add()">
+    </form>
+    <p id="qq"></p> -->
+
+    <!-- <p id="test" >123</p> -->
+
+    <!-- <form id="form1" onreset="add2()" onsubmit="pass()">
+        數值1: <input type="text" id = 'num1'><br>
+        數值2: <input type="text"><br>
+        <input type="button" name="submit" value="相加" onclick="add();" />
+        <input type="reset" name="reset" value="重設">
+        <input type="submit" value="送出" >
+    </form>
+    <p id="demo"></p> -->
+
+    <!-- <button onclick="myFunction()">點我</button>
+    <button onclick="myFunction2()">不要點我</button>
+
+    <p id="demo"></p> -->
+
+    <script>
+        // var x='5'
+        // var y=x+1
+        // alert(y)
+
+        // function test(a,b){
+        //     c=a+b
+        //     document.write(c)
+        // }
+
+        // var x = '台中市北區三民路三段161號'
+        // var y = x.indexOf('市')
+        // var z = x.substring(y-2,y+1)
+        // document.write(z)
+
+        // test(1,2)
+
+        // function age(a,b){
+        //     var age = b-a;
+        //     var temp = '今年'+age+'歲';
+        //     return {f:temp,s:age}
+        // }
+
+        // var z = age(2150,2200).f
+        // document.write(z);
+
+        // var c = age(2150,2200).s
+
+        // if ( c >= 60 ) {
+        //     document.write('老人')
+        // }else if( c >= 45 ){
+        //     document.write('中年人')
+        // }else{
+        //     document.write('年輕人')
+        // }
+
+        // function test(a) {
+        //     if (a >= 100) {
+        //         // alert('輸入值大於100')              
+        //         document.write('輸入值大於100')
+        //     } else {
+        //         // alert('輸入值小於100')    
+        //         document.write('輸入值小於100')               
+
+        //     }
+        // }
+        // test(120)
+
+        // var i = 1 
+        // while (i<15) {
+        //     document.write(i+'隻羊<br>')
+        //     i++
+        // }
+
+        // for (var i = 0; i < 10; i+=2) {
+        //     document.write(i+'隻貓<br>')            
+        // }
+
+        // var people = ['Charles','Lewis','Max','Geroge']
+        // var score = [100,95,85,85]
+        // document.write(people[0]+'  '+score[0] + '分<br>')
+        // document.write(people[3]+'  '+score[3] + '分<br>') 
+        // document.write(people[2]+'  '+score[2] + '分<br>')
+        // document.write(people[1]+'  '+score[1] + '分<br>')
+        // people.push('james')
+        // people.unshift('Alice')
+        // console.log(people)
+
+        // var people = ['Charles', 'Lewis', 'Max', 'Geroge']
+        // // alert(people)
+        // // alert(people.length)
+        // // alert(people[0])
+        // for (let index = 0; index < people.length; index++) {
+        //     const element = people[index];
+        //     document.write(element + '<br>')          
+        // }
+
+        // data = document.querySelectorAll('p')
+        // data = document.getElementsByTagName('p')
+        // // data = document.getElementById('a')
+        // city = document.getElementsByName('cc')
+
+
+
+        // document.write(data[0])
+        // document.write(data[0].innerHTML + '   ')
+        // document.write(data[0].innerText + '   ')
+        // document.write(city[0].innerHTML + '   ')
+
+        // alert(data[0].innerText);
+        // alert(data[0].innerHTML);
+
+        // function test() {
+        //     // var name = document.querySelector('querySelector').value;
+        //     var name = document.getElementById('#querySelector').value;
+        //     var email = document.getElementById('email').value;
+        //     alert('姓名 : '+ name + '   email : ' + email)
+        // }
+
+        // var test = document.getElementById('test')
+        // test.textContent = '999'
+        // test.innerText = '999'
+        // test.innerHTML = '<p style = "color:darkblue">777</p>'
+
+        // var email = document.getElementById('email');
+        // email.value = 'gmail'
+
+        // var one = document.getElementById('one')
+        // var two = document.getElementById('two')
+
+        // function add() {
+        //     var ans = one.value + '-' + two.value
+        //     var qq = document.getElementById('qq')
+        //     qq.textContent = '你的車牌為 ' + ans
+        // }
+
+        // function tt() {
+        //     alert('test')
+        // }
+
+        // function add() {
+        //     var numbers = document.getElementById("form1");
+        //     var answer =
+        //         parseInt(numbers.elements[0].value) + parseInt(numbers.elements[1].value);
+        //     document.getElementById("demo").innerHTML = answer;
+        // }
+
+        // function add2() {
+        //     var num1 = document.getElementById('num1').value
+        //     alert(num1)
+        // }
+
+        // function pass() {
+        //     alert('你即將送出表單')
+        // }
+
+        // var a = '123';
+        // var b = Number(a);
+        // var c = parseFloat(a)
+        // document.write(a + '，a型態是' + typeof (a));
+        // document.write(b + '，b型態是' + typeof (b));
+        // document.write(c + '，c型態是' + typeof (c));
+
+
+        // function myFunction() {
+        //     var x;
+        //     var r = confirm("按下按鈕!");
+        //     if (r == true) {
+        //         x = "你按下了\"確定\"按鈕!";
+        //     }
+        //     else {
+        //         x = "你按下了\"取消\"按鈕!";
+        //     }
+        //     document.getElementById("demo").innerHTML = x;
+        // }
+
+        // function myFunction2() {
+        //     var x;
+        //     var person = prompt("請輸入你的名字", "V");
+        //     if (person != null && person != "") {
+        //         x = "你好 " + person + "!今天感覺如何 ? ";
+        //         document.getElementById("demo").innerHTML = x;
+        //     }
+        // }
+
+        function test() {
+            var name = document.querySelector('#name').value;
+            // var name = document.getElementById('name').value
+            var qq = 1
+            if (name == null || name == "") {
+                alert('名字必須填寫');
+                qq = 2
+                return false
+            } 
+            var mail = document.querySelector('#email').value;
+            var a = mail.indexOf("@");
+            var b = mail.indexOf(".");
+            if(a < 1 || b < 1){
+                alert('無效的信箱地址');
+                qq = 2
+                return false
+            }
+            var tel = document.querySelector('#tel').value;
+            var c = tel.length
+            if (c != 9) {
+                alert('無效的手機號碼');
+                qq = 2
+                return false
+            }
+            if (qq == 1) {
+                alert('送出成功');
+            }
+        }
+
+    </script>
+</body>
+
+</html>
